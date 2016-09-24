@@ -1,0 +1,8 @@
+<% @singers.each do |singer| %>
+<p>
+	<%= singer.title %>
+	<%= singer.body %>
+	<%= link_to 'Edit', edit_singer_path(singer) %>
+	<%= link_to 'Delete', delete_singer_path(singer), method: :delete, data: {confirm: 'Are you sure?'} %>
+</p>
+<% end %>
