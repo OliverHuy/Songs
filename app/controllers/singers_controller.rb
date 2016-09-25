@@ -1,4 +1,5 @@
 class SingersController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@singers = Singer.all
@@ -10,6 +11,7 @@ class SingersController < ApplicationController
 
 	def create
 		@singer = Singer.new(singers_params)
+		@singer.user_id = current_user.id
 		if @singer.save
 			redirect_to @singer
 		else
@@ -44,7 +46,7 @@ class SingersController < ApplicationController
 	private
 
 	def singers_params
-		params.require(:singer).permit(:title, :body)
+		params.require(:singer).permit(:title, :body, :user_id)
 	end
 
 end
