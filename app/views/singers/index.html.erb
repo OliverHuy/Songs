@@ -1,7 +1,7 @@
 <% @singers.each do |singer| %>
 <p>
+	<%= image_tag singer.image.url(:medium) %>
 	<%= singer.title %>
-	<%= singer.body %>
 	<%= singer.user.email %>
 	<%= link_to 'Show', singer_path(singer) %>
 	<%= link_to 'Edit', edit_singer_path(singer) %>

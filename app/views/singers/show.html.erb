@@ -1,6 +1,9 @@
 <p>
+	<%= image_tag @singer.image.url(:medium) %><br>
 	<%= @singer.title %><br>
 	<%= @singer.body %>
+	
+
 </p>
 <%= link_to 'Edit', edit_singer_path(@singer) %>
 <%= link_to 'Back', root_path %>
