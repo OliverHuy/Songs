@@ -1,11 +1,28 @@
-<%= form_for @singer, html: { multipart: true } do |f| %><br>
-<p>
-	<%= f.label :image %><br>
-	<%= f.file_field :image %><br>
-	<%= f.label :name %><br>
-	<%= f.text_field :title %><br>
-	<%= f.label :Information %><br>
-	<%= f.text_area :body %><br>
-	<%= f.submit %><br>
-	<% end %> 
-</p>
+<div class="panel panel-default">
+	<div class="panel-body">
+	<%= form_for @singer, html: { multipart: true } do |f| %><br>
+		
+		<div class="form-group">
+		<%= f.label :image %><br>
+		<%= f.file_field :image, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+		<%= f.label :name %><br>
+		<%= f.text_field :title, class: "form-control" %>
+		</div>
+
+		<div class="form-group">
+		<%= f.label :Information %><br>
+		<%= f.text_area :body, class: "form-control" %>
+		</div>
+
+		<div class="actions">
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+        </div>
+
+		<% end %> 
+	
+	</div>
+</div>
+

@@ -1,10 +1,22 @@
-<% @singers.each do |singer| %>
-<p>
-	<%= image_tag singer.image.url(:medium) %>
-	<%= singer.title %>
-	<%= singer.user.email %>
-	<%= link_to 'Show', singer_path(singer) %>
-	<%= link_to 'Edit', edit_singer_path(singer) %>
-	<%= link_to 'Delete', delete_singer_path(singer), method: :delete, data: {confirm: 'Are you sure?'} %>
-</p>
-<% end %>
+
+    
+    
+		<div class="row">
+		
+			<% @singers.each do |singer| %>
+				<div class="col-sm-6 col-md-3">
+					<div class="img-thumbnail">
+						<%= link_to (image_tag singer.image.url(:medium), class: 'image'), singer_path(singer)%>
+					</div>
+				</div>
+			<% end %>
+			
+		</div>
+	
+
+	
+
+
+	
+
+
