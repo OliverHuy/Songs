@@ -2,14 +2,45 @@
   <% @singers.each do |singer| %>
     <div class="col-sm-6 col-md-3">  
       	<div class="thumbnail">
-        	<%= link_to (image_tag singer.image.url(:medium), class: 'image'), singer %>      	
+
+		      	<%= link_to "#", data: {toggle: "modal", target: "#modal#{singer.id}"} do %>
+                <%= image_tag singer.image.url(:large) %>
+            <% end %>
+
+            <div class="modal fade" id="modal<%= singer.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">							                     
+							<div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">                                              
+                      <h4 class="text-center" class="modal-title" id="myModalLabel"><%= singer.title %></h4>
+                  </div>
+                  <div class="modal-body">
+                      <div class="row">
+                          <div class="col-md-6">
+                    
+                        <%= image_tag singer.image.url(:medium) %>
+                          </div>
+                        
+                          <div class="col-md-6">
+                        <%= singer.body %>
+                          </div>
+                      </div>
+                    
+                       
+              
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <%= link_to "Show Time", singer_path(singer), class: "btn btn-primary" %>
+                  </div>
+                </div>                                                            	
+              </div>
+            </div>
+                       
+                     
+                         
+
+           
         </div>
   	</div>    
   <% end %>
 </div>
-	
-
-
-	
-
-
