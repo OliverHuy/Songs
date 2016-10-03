@@ -2,7 +2,7 @@ class SingersController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@singers = Singer.all
+		@singers = Singer.all.paginate(:page => params[:page], :per_page => 18)
 	end
 
 	def new
