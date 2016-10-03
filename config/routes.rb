@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 	patch '/singers/:id' => 'singers#update'
 
 	delete '/singers/:id' => 'singers#destroy', as: :delete_singer
+
 end
+
